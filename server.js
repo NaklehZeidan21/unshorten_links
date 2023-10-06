@@ -31,31 +31,7 @@ app.set('views', path.join(__dirname, 'Front', 'views'));
   // }
  //});
 
- const serverUrl = 'http://localhost:6969'; // Replace with your server's URL
- const intervalInMilliseconds = 14 * 60 * 1000; // 14 minutes in milliseconds
- const sleepDurationInMilliseconds = 9 * 1000; // 9 seconds in milliseconds
- 
- function pingServer() {
-   axios.get(serverUrl)
-     .then((response) => {
-       console.log('Ping successful at', new Date().toLocaleString());
-       console.log('Response status:', response.status);
-     })
-     .catch((error) => {
-       console.error('Ping error at', new Date().toLocaleString(), ':', error.message);
-     });
- }
- 
- // Initial ping and setup interval
- pingServer();
- 
- setInterval(() => {
-   pingServer();
-   setTimeout(pingServer, sleepDurationInMilliseconds); // Sleep before the second ping
- }, intervalInMilliseconds);
 
-
- // no need to create other endpoint
 // Render index.ejs with dynamic data is rendered in the home 
 app.get('/', async (req, res) => {
   try {
@@ -65,30 +41,8 @@ app.get('/', async (req, res) => {
     res.status(500).json({ error: 'An error occurred while retrieving URLs' });
   }
 
-  const serverUrl = 'http://localhost:6969'; // Replace with your server's URL
-  const intervalInMilliseconds = 14 * 60 * 1000; // 14 minutes in milliseconds
-  
-  function pingServer() {
-    axios.get(serverUrl)
-      .then((response) => {
-        console.log('Ping successful at', new Date().toLocaleString());
-        console.log('Response status:', response.status);
-      })
-      .catch((error) => {
-        console.error('Ping error at', new Date().toLocaleString(), ':', error.message);
-      });
-  }
-  
-  
-  
-  setInterval(pingServer, intervalInMilliseconds);
-
-});
-
-
+ 
 // no need to create other endpoint
-
-
 // app.get('/', (req, res) => {
 //   try {
 //     res.render('index'); // Just render the 'index.ejs' template without any data
@@ -157,8 +111,7 @@ app.post('/unshorten', rateLimiterMiddleware, corsPOST,onlyJson,setSecurityHeade
 
 
 
-//api
-
+//GET /api
 app.get('/api/unshorten', rateLimiterMiddleware, corsGET, async (req, res) => {
   const shortUrl = req.query.url;
   //
