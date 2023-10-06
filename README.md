@@ -13,8 +13,8 @@ GET /api/unshorten?url=<short_url_request>
 ### 📦 Response: (JSON)
 ` {
   "originalUrl": "original_url_response"
-} `
-
+}
+ `
 If the response is successful, it will contain the original URL corresponding to the provided short URL in JSON format.
 
 ### ⏰ Rate Limiting
