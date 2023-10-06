@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation - URL Unshortener</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(39, 40, 41);
+        }
+        .container {
+            max-width: 100vh;
+            color: #D8D9DA;
+        }
+        .form-container {
+            background-color: #D8D9DA;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #main_button {
+            background-color: #61677A;
+            color: white;
+            padding: 8px 8px;
+            cursor: pointer;
+            transition: background-color 1s, color 0.5s;
+        }
+
+        #main_button:hover {
+            background-color: #D8D9DA;
+            color: black;
+            border: 1px solid black;
+        }
+
+        .satan-loader {
+            display: inline-block;
+            animation: pump 2s infinite ease-in-out;
+            font-size: 12px; /* Adjust the size as needed */
+        }
+
+        @keyframes pump {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <!--NAV-->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background: rgba(0, 0, 0, 0.2);">
+        <a class="navbar-brand" href="#" style="color: white;">URL👿Unshortener</a>
+        <button style="border: 1px solid white; color:rgba(255, 255, 255, 0.773);" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            menu
+        </button>
+       
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link " href="/" style="color: grey;">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="/api-docs" style="color: white;">API</a>
+                </li>
+                <li class="nav-item dropdown ">
+                    <a class="nav-link dropdown-toggle disabled"  style="color: grey;" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: white;">
+                        Browser Extensions
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Chrome</a>
+                        <a class="dropdown-item" href="#">Firefox</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+<!--/NAV-->
+
+
+<div class="container mt-4">
+    <h2 style="color: white;">📚 API Documentation</h2>
+    <p style="color: #D8D9DA;">
+        This page provides documentation for the URL Unshortener API, which allows you to expand short URLs to preview their destination without visiting them.
+    </p>
+
+    <div class='container mt-4'>
+        <h3 style="color: lightgray;">🔗 Endpoint: /api/unshorten (GET)</h3>
+        <p style="color: #D8D9DA;">
+            This endpoint allows you to unshorten a given short URL and retrieve its original URL. The API rate limit is 25 requests per day.
+        </p>
+    </div>
+
+    <div class='container mt-4'>
+            <h5 style="color: lightgray;">🚀 Request:</h5>
+            <pre style="color: #D8D9DA; background-color: #2E2E2E; padding: 10px;">GET /api/unshorten?url=short_url_request</pre>
+
+            <h5 style="color: lightgray;">📦 Response: <small style="font-size:10px">(JSON)</small></h5>
+            <pre style="color: #D8D9DA; background-color: #2E2E2E; padding:2px;">
+{
+  "originalUrl": "original_url_response"
+}</pre>
+
+            <p style="color: #D8D9DA;">
+                If the response is successful, it will contain the original URL corresponding to the provided short URL.
+            </p>
+</div>
+
+    <div class='container mt-4'>
+        <h4 style="color: lightgray;">⏰ Rate Limiting</h4>
+        <p style="color: #D8D9DA;">
+            The API endpoint `/api/unshorten` has a rate limit of 25 requests per day. This means each unique IP address is allowed to make up to 25 requests to the endpoint within a 24-hour period. If the rate limit is exceeded, subsequent requests will receive a status code of 429 (Too Many Requests) along with an error message.
+        </p>
+    </div>
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
