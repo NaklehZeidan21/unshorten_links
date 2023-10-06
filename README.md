@@ -1,6 +1,6 @@
 # unshorten_links
 
-[Visit Site:](https://test-xhs4.onrender.com)
+[Visit Site:](https://test-xhs4.onrender.com) (Takes time to load)
 Know Where You're Going. Unmask Shortened URLs for Enhanced Security.
 
 ## 📚API Documentation
