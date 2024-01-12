@@ -32,7 +32,7 @@ app.set('views', path.join(__dirname, 'Front', 'views'));
  //});
 
 
-// Render index.ejs with dynamic data is rendered in the home 
+// [get] Render index.ejs with dynamic data is rendered in the home 
 app.get('/', async (req, res) => {
   try {
     const lastTenEntries = await Url.find().sort({ _id: -1 }).limit(8);
@@ -41,15 +41,6 @@ app.get('/', async (req, res) => {
     res.status(500).json({ error: 'An error occurred while retrieving URLs' });
   }
 
- 
-// no need to create other endpoint
-// app.get('/', (req, res) => {
-//   try {
-//     res.render('index'); // Just render the 'index.ejs' template without any data
-//   } catch (error) {
-//     res.status(500).json({ error: 'An error occurred while rendering the template' });
-//   }
-// });
 
 app.get('/api-docs', (req, res) => {
   try {
@@ -110,7 +101,7 @@ app.post('/unshorten', rateLimiterMiddleware, corsPOST,onlyJson,setSecurityHeade
 
 
 
-
+====API====
 //GET /api
 app.get('/api/unshorten', rateLimiterMiddleware, corsGET, async (req, res) => {
   const shortUrl = req.query.url;
